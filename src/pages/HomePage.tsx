@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, ArrowRight, Shield, Handshake, TrendingUp, Clock, Scale, FileCheck, BadgeCheck, Users, Landmark, ClipboardCheck } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Shield, Handshake, TrendingUp, Clock, Scale, FileCheck, BadgeCheck, Users, Landmark, ClipboardCheck, KeyRound, BarChart3, ShieldCheck, Headphones } from 'lucide-react';
 import SearchBar from '../components/SearchBar';
 import PropertyCard from '../components/PropertyCard';
 import { useSite } from '../context/useSite';
@@ -271,6 +271,82 @@ export default function HomePage() {
               Consulta con nuestros profesionales
               <ArrowRight className="h-4 w-4" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── PROPIETARIOS ─── */}
+      <section className="relative overflow-hidden py-24">
+        <div className="mx-auto max-w-[1400px] px-5 lg:px-10">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div className="relative">
+              <div className="overflow-hidden rounded-3xl">
+                <img
+                  src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop"
+                  alt="Propiedad en alquiler"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+              <div className="absolute -right-4 -bottom-4 rounded-2xl border border-brand-100 bg-white p-5 shadow-xl max-sm:hidden">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-green-100 text-green-600">
+                    <BarChart3 className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-[13px] font-semibold text-brand-900">Rentabilidad garantizada</p>
+                    <p className="text-[12px] text-brand-500">Maximizamos tus ingresos</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p className="text-[12px] font-semibold tracking-widest text-accent-500 uppercase">
+                Para propietarios
+              </p>
+              <h2 className="mt-3 text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold leading-tight tracking-tight text-brand-900">
+                ¿Tienes una propiedad<br />sin rentar?
+              </h2>
+              <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-brand-500">
+                Nosotros nos encargamos de todo. Encontraremos la manera más rentable y segura
+                de hacer funcionar ese inmueble para ti. Desde la publicación hasta el cobro mensual,
+                tú solo recibes tus ganancias.
+              </p>
+
+              <div className="mt-8 space-y-4">
+                {[
+                  { icon: KeyRound, text: 'Administramos tu propiedad de principio a fin' },
+                  { icon: ShieldCheck, text: 'Inquilinos verificados con estudio de seguridad' },
+                  { icon: BarChart3, text: 'Análisis de mercado para fijar el mejor precio' },
+                  { icon: Headphones, text: 'Soporte 24/7 para ti y para tus inquilinos' },
+                ].map((item) => (
+                  <div key={item.text} className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-50 text-accent-600">
+                      <item.icon className="h-4 w-4" />
+                    </div>
+                    <span className="text-[14px] font-medium text-brand-700">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  to="/contacto"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-900 px-7 py-3 text-[14px] font-semibold text-white transition-colors hover:bg-brand-800"
+                >
+                  Quiero rentar mi propiedad
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <a
+                  href={`https://wa.me/573001234567?text=${encodeURIComponent('Hola, tengo una propiedad y me gustaría saber cómo pueden ayudarme a rentarla.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-200 px-7 py-3 text-[14px] font-semibold text-brand-900 transition-colors hover:bg-brand-50"
+                >
+                  Hablar por WhatsApp
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Search, Phone } from 'lucide-react';
+import { Menu, X, Search } from 'lucide-react';
 
 const links = [
   { to: '/', label: 'Inicio' },
@@ -59,15 +59,7 @@ export default function Navbar() {
             <Search className="h-3.5 w-3.5" />
             Buscar
           </Link>
-          <a
-            href="tel:+573001234567"
-            className={`flex items-center gap-2 text-[13px] font-medium ${
-              isHome ? 'text-white/70' : 'text-brand-500'
-            }`}
-          >
-            <Phone className="h-3.5 w-3.5" />
-            300 123 4567
-          </a>
+
         </div>
 
         {/* Mobile toggle */}
