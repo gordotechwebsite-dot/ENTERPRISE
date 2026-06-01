@@ -23,21 +23,12 @@ export default function Navbar() {
     >
       <div className="mx-auto flex h-[72px] max-w-[1400px] items-center justify-between px-5 lg:px-10">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2.5">
-          <div
-            className={`flex h-9 w-9 items-center justify-center rounded-md text-[15px] font-black tracking-tighter ${
-              isHome ? 'bg-white text-brand-900' : 'bg-brand-900 text-white'
-            }`}
-          >
-            E
-          </div>
-          <span
-            className={`text-[17px] font-bold tracking-tight ${
-              isHome ? 'text-white' : 'text-brand-900'
-            }`}
-          >
-            Enterprise
-          </span>
+        <Link to="/" className="flex items-center">
+          <img
+            src="/logo.png"
+            alt="Enterprise Inmobiliaria"
+            className={`h-10 w-auto object-contain ${isHome ? 'brightness-0 invert' : ''}`}
+          />
         </Link>
 
         {/* Desktop nav */}

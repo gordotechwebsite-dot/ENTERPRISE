@@ -12,13 +12,12 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-white text-[14px] font-black text-brand-900">
-                E
-              </div>
-              <span className="text-[16px] font-bold tracking-tight text-white">
-                Enterprise
-              </span>
+            <Link to="/" className="flex items-center">
+              <img
+                src="/logo.png"
+                alt="Enterprise Inmobiliaria"
+                className="h-9 w-auto object-contain brightness-0 invert"
+              />
             </Link>
             <p className="mt-4 text-[13px] leading-relaxed text-brand-500">
               Expertos en inmuebles en Boyacá. Duitama, Tunja, Sogamoso y Paipa.

@@ -23,9 +23,7 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-brand-50 px-4">
       <div className="w-full max-w-sm">
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-900 text-[18px] font-black text-white">
-            E
-          </div>
+          <img src="/logo.png" alt="Enterprise Inmobiliaria" className="mx-auto mb-4 h-14 w-auto object-contain" />
           <h1 className="text-[22px] font-bold text-brand-900">Panel de Administración</h1>
           <p className="mt-1 text-[13px] text-brand-500">Ingresa tu contraseña para continuar</p>
         </div>
