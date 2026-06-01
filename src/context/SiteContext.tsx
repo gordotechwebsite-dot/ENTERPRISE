@@ -6,7 +6,7 @@ import type { SiteContent, ContactInfo, ContactMessage, SiteCtx } from './siteTy
 
 /* ─── Defaults ─── */
 const defaultContent: SiteContent = {
-  hero: { title: 'Encuentra', highlight: 'tu lugar', subtitle: 'Apartamentos en venta, rentas mensuales y estancias cortas en Duitama, Tunja, Sogamoso y Paipa.' },
+  hero: { title: 'Encuentra', highlight: 'tu hogar', subtitle: 'Apartamentos en venta, rentas mensuales y estancias cortas en Duitama, Tunja, Sogamoso y Paipa.' },
   categories: [
     { title: 'Comprar', description: 'Apartamentos de lujo, familiares y de inversión en las mejores zonas.' },
     { title: 'Renta Mensual', description: 'Arriendos con las mejores condiciones. Amoblados y sin amoblar.' },
