@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Mail, Phone, MapPin } from 'lucide-react';
+import { Globe, MessageCircle, Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -20,7 +20,7 @@ export default function Footer() {
               Expertos en inmuebles con más de 10 años en el mercado colombiano.
             </p>
             <div className="mt-5 flex gap-2">
-              {[Instagram, Facebook].map((Icon, i) => (
+              {[Globe, MessageCircle].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
