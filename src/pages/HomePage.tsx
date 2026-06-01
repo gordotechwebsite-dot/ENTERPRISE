@@ -89,10 +89,7 @@ export default function HomePage() {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6">
-                  <span className="text-[12px] font-semibold tracking-wider text-white/60 uppercase">
-                    {cat.count} propiedades
-                  </span>
-                  <h3 className="mt-1 text-[22px] font-bold text-white">{cat.title}</h3>
+                  <h3 className="text-[22px] font-bold text-white">{cat.title}</h3>
                   <p className="mt-1 text-[13px] leading-relaxed text-white/70">{cat.desc}</p>
                 </div>
               </Link>
