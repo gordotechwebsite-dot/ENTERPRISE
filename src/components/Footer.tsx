@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { Globe, MessageCircle, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { useSite } from '../context/useSite';
+import { FacebookIcon, InstagramIcon, AirbnbIcon } from './SocialIcons';
 
 export default function Footer() {
   const { contact } = useSite();
@@ -23,15 +24,37 @@ export default function Footer() {
               Expertos en inmuebles en Boyacá. Duitama, Tunja, Sogamoso y Paipa.
             </p>
             <div className="mt-5 flex gap-2">
-              {[Globe, MessageCircle].map((Icon, i) => (
+              {contact.facebook && (
                 <a
-                  key={i}
-                  href="#"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/8 text-brand-400 transition-colors hover:bg-accent-500 hover:text-white"
+                  href={contact.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/8 text-brand-400 transition-colors hover:bg-[#1877F2] hover:text-white"
                 >
-                  <Icon className="h-4 w-4" />
+                  <FacebookIcon className="h-4 w-4" />
                 </a>
-              ))}
+              )}
+              {contact.instagram && (
+                <a
+                  href={contact.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/8 text-brand-400 transition-colors hover:bg-[#E4405F] hover:text-white"
+                >
+                  <InstagramIcon className="h-4 w-4" />
+                </a>
+              )}
+              <a
+                href="https://airbnb.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Airbnb"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/8 text-brand-400 transition-colors hover:bg-[#FF5A5F] hover:text-white"
+              >
+                <AirbnbIcon className="h-4 w-4" />
+              </a>
             </div>
           </div>
 

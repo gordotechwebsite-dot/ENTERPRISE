@@ -26,8 +26,8 @@ const defaultContact: ContactInfo = {
   city: 'Duitama, Boyacá',
   hours: 'Lun - Vie: 8am - 6pm\nSáb: 9am - 2pm',
   whatsapp: '573001234567',
-  instagram: '',
-  facebook: '',
+  instagram: 'https://instagram.com/enterprise.inmobiliaria',
+  facebook: 'https://facebook.com/enterprise.inmobiliaria',
 };
 
 const ADMIN_PASSWORD = 'enterprise2024';

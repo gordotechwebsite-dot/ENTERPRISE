@@ -13,6 +13,7 @@ import PropertiesAdminPage from './pages/admin/PropertiesAdminPage';
 import ContentPage from './pages/admin/ContentPage';
 import ContactAdminPage from './pages/admin/ContactAdminPage';
 import MessagesPage from './pages/admin/MessagesPage';
+import WhatsAppBubble from './components/WhatsAppBubble';
 import type { ReactNode } from 'react';
 
 function RequireAuth({ children }: { children: ReactNode }) {
@@ -50,6 +51,7 @@ export default function App() {
             <Route path="mensajes" element={<MessagesPage />} />
           </Route>
         </Routes>
+        <WhatsAppBubble />
       </BrowserRouter>
     </SiteProvider>
   );
