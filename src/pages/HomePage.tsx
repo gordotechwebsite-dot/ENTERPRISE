@@ -3,18 +3,43 @@ import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ArrowRight, Shield, Handshake, TrendingUp, Clock } from 'lucide-react';
 import SearchBar from '../components/SearchBar';
 import PropertyCard from '../components/PropertyCard';
-import { properties } from '../data/properties';
+import { useSite } from '../context/useSite';
 
 const marqueeText = 'Expertos en Inmuebles ';
 
 export default function HomePage() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const { properties, content } = useSite();
 
   const scroll = (dir: 'left' | 'right') => {
     scrollRef.current?.scrollBy({ left: dir === 'left' ? -340 : 340, behavior: 'smooth' });
   };
 
   const featured = properties.filter((p) => p.isFeatured);
+
+  const catData = [
+    {
+      title: content.categories[0]?.title ?? 'Comprar',
+      desc: content.categories[0]?.description ?? '',
+      link: '/propiedades?type=venta',
+      img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop',
+      count: properties.filter((p) => p.type === 'venta').length,
+    },
+    {
+      title: content.categories[1]?.title ?? 'Renta Mensual',
+      desc: content.categories[1]?.description ?? '',
+      link: '/propiedades?type=renta-mensual',
+      img: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&h=400&fit=crop',
+      count: properties.filter((p) => p.type === 'renta-mensual').length,
+    },
+    {
+      title: content.categories[2]?.title ?? 'Estancias Cortas',
+      desc: content.categories[2]?.description ?? '',
+      link: '/propiedades?type=renta-corta',
+      img: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&h=400&fit=crop',
+      count: properties.filter((p) => p.type === 'renta-corta').length,
+    },
+  ];
 
   return (
     <>
@@ -33,27 +58,15 @@ export default function HomePage() {
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-5 pt-28 pb-20 lg:px-10 lg:pt-0 lg:pb-0">
           <div className="max-w-2xl">
             <h1 className="text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[1.05] tracking-tight text-white">
-              Encuentra
+              {content.hero.title}
               <br />
-              tu <span className="text-accent-300">lugar</span>
+              <span className="text-accent-300">{content.hero.highlight}</span>
             </h1>
             <p className="mt-5 max-w-md text-[17px] leading-relaxed text-white/70">
-              Apartamentos en venta, rentas mensuales y estancias cortas en las mejores ubicaciones de Colombia.
+              {content.hero.subtitle}
             </p>
             <div className="mt-8">
               <SearchBar />
-            </div>
-            <div className="mt-10 flex gap-8 text-white/60">
-              {[
-                ['500+', 'Propiedades'],
-                ['2,000+', 'Clientes'],
-                ['12', 'Ciudades'],
-              ].map(([n, l]) => (
-                <div key={l}>
-                  <div className="text-[22px] font-bold text-white">{n}</div>
-                  <div className="text-[12px] tracking-wide">{l}</div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -75,29 +88,7 @@ export default function HomePage() {
       <section className="py-20">
         <div className="mx-auto max-w-[1400px] px-5 lg:px-10">
           <div className="grid gap-5 md:grid-cols-3">
-            {[
-              {
-                title: 'Comprar',
-                desc: 'Apartamentos de lujo, familiares y de inversión en las mejores zonas.',
-                link: '/propiedades?type=venta',
-                img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop',
-                count: properties.filter((p) => p.type === 'venta').length,
-              },
-              {
-                title: 'Renta Mensual',
-                desc: 'Arriendos con las mejores condiciones. Amoblados y sin amoblar.',
-                link: '/propiedades?type=renta-mensual',
-                img: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&h=400&fit=crop',
-                count: properties.filter((p) => p.type === 'renta-mensual').length,
-              },
-              {
-                title: 'Estancias Cortas',
-                desc: 'Vacaciones, negocios o nómadas digitales. Experiencias de lujo.',
-                link: '/propiedades?type=renta-corta',
-                img: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&h=400&fit=crop',
-                count: properties.filter((p) => p.type === 'renta-corta').length,
-              },
-            ].map((cat) => (
+            {catData.map((cat) => (
               <Link
                 key={cat.title}
                 to={cat.link}
@@ -124,7 +115,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── FEATURED PROPERTIES (horizontal scroll like eXp) ─── */}
+      {/* ─── FEATURED PROPERTIES ─── */}
       <section className="bg-brand-50 py-20">
         <div className="mx-auto max-w-[1400px] px-5 lg:px-10">
           <div className="flex items-end justify-between">
@@ -184,15 +175,13 @@ export default function HomePage() {
           <div className="grid items-center gap-14 lg:grid-cols-2">
             <div>
               <p className="text-[12px] font-semibold tracking-widest text-accent-500 uppercase">
-                Por qué Enterprise
+                {content.whyUs.subtitle}
               </p>
               <h2 className="mt-3 text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold leading-tight tracking-tight text-brand-900">
-                Más que una inmobiliaria,
-                <br />
-                tu aliado de confianza
+                {content.whyUs.title}
               </h2>
               <p className="mt-4 max-w-md text-[15px] leading-relaxed text-brand-500">
-                Con más de 10 años de experiencia en el mercado colombiano, te acompañamos en cada paso para encontrar la propiedad perfecta.
+                {content.whyUs.description}
               </p>
               <Link
                 to="/contacto"

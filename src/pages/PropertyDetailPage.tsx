@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, Bed, Bath, Maximize, MapPin, Star, Heart, Share2, Phone, Mail, Award } from 'lucide-react';
-import { properties } from '../data/properties';
 import PropertyCard from '../components/PropertyCard';
+import { useSite } from '../context/useSite';
 
 const typeLabel: Record<string, string> = {
   venta: 'Venta',
@@ -11,6 +11,7 @@ const typeLabel: Record<string, string> = {
 
 export default function PropertyDetailPage() {
   const { id } = useParams();
+  const { properties, contact } = useSite();
   const property = properties.find((p) => p.id === id);
 
   if (!property) {
@@ -157,13 +158,13 @@ export default function PropertyDetailPage() {
 
               <div className="mt-5 space-y-2.5">
                 <a
-                  href="tel:+573001234567"
+                  href={`tel:${contact.phone.replace(/\s/g, '')}`}
                   className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand-900 py-3 text-[14px] font-semibold text-white transition-colors hover:bg-brand-800"
                 >
                   <Phone className="h-4 w-4" /> Llamar ahora
                 </a>
                 <a
-                  href={`https://wa.me/573001234567?text=Hola, me interesa la propiedad: ${property.title}`}
+                  href={`https://wa.me/${contact.whatsapp}?text=Hola, me interesa la propiedad: ${property.title}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex w-full items-center justify-center gap-2 rounded-lg border border-brand-200 bg-white py-3 text-[14px] font-semibold text-brand-900 transition-colors hover:bg-brand-50"
