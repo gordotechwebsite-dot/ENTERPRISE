@@ -38,7 +38,20 @@ export default function PropertyDetailPage() {
             <ArrowLeft className="h-4 w-4" /> Volver
           </Link>
           <div className="flex items-center gap-3">
-            <button type="button" className="flex items-center gap-1.5 rounded-full border border-brand-200 px-3 py-1.5 text-[12px] font-medium text-brand-700">
+            <button
+              type="button"
+              onClick={async () => {
+                const url = window.location.href;
+                const text = `Vi esto en Enterprise Inmobiliaria: ${property.title}`;
+                if (navigator.share) {
+                  try { await navigator.share({ title: property.title, text, url }); } catch { /* cancelled */ }
+                } else {
+                  await navigator.clipboard.writeText(`${text}\n${url}`);
+                  alert('Link copiado al portapapeles');
+                }
+              }}
+              className="flex items-center gap-1.5 rounded-full border border-brand-200 px-3 py-1.5 text-[12px] font-medium text-brand-700"
+            >
               <Share2 className="h-3.5 w-3.5" /> Compartir
             </button>
             <button type="button" className="flex items-center gap-1.5 rounded-full border border-brand-200 px-3 py-1.5 text-[12px] font-medium text-brand-700">
