@@ -5,8 +5,6 @@ import SearchBar from '../components/SearchBar';
 import PropertyCard from '../components/PropertyCard';
 import { useSite } from '../context/useSite';
 
-const marqueeText = 'Expertos en Inmuebles ';
-
 export default function HomePage() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const { properties, content } = useSite();
@@ -71,18 +69,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ─── MARQUEE ─── */}
-      <div className="overflow-hidden border-b border-brand-100 bg-white py-4">
-        <div className="animate-marquee flex whitespace-nowrap">
-          {Array.from({ length: 10 }).map((_, i) => (
-            <span key={i} className="mx-6 text-[13px] font-semibold tracking-[0.2em] text-brand-300 uppercase">
-              {marqueeText}
-              <span className="mx-4 text-accent-300">&#x2022;</span>
-            </span>
-          ))}
-        </div>
-      </div>
 
       {/* ─── CATEGORIES ─── */}
       <section className="py-20">
