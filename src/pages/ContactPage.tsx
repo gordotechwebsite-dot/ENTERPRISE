@@ -69,7 +69,7 @@ export default function ContactPage() {
                       type="text"
                       required
                       className="w-full rounded-lg border border-brand-200 px-4 py-3 text-[14px] text-brand-900 outline-none focus:border-brand-400"
-                      placeholder="Tu nombre"
+                      placeholder=""
                     />
                   </div>
                   <div>
@@ -81,7 +81,7 @@ export default function ContactPage() {
                       type="tel"
                       required
                       className="w-full rounded-lg border border-brand-200 px-4 py-3 text-[14px] text-brand-900 outline-none focus:border-brand-400"
-                      placeholder="+57 300 000 0000"
+                      placeholder=""
                     />
                   </div>
                 </div>
@@ -94,7 +94,7 @@ export default function ContactPage() {
                     type="email"
                     required
                     className="w-full rounded-lg border border-brand-200 px-4 py-3 text-[14px] text-brand-900 outline-none focus:border-brand-400"
-                    placeholder="tu@email.com"
+                    placeholder=""
                   />
                 </div>
                 <div>
@@ -117,7 +117,7 @@ export default function ContactPage() {
                     name="message"
                     rows={4}
                     className="w-full resize-none rounded-lg border border-brand-200 px-4 py-3 text-[14px] text-brand-900 outline-none focus:border-brand-400"
-                    placeholder="Cuéntanos qué estás buscando..."
+                    placeholder=""
                   />
                 </div>
                 <button

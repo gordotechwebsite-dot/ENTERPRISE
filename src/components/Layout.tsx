@@ -5,8 +5,8 @@ import Footer from './Footer';
 import MarqueeBanner from './MarqueeBanner';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  const { pathname, search } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname, search]);
   return null;
 }
 

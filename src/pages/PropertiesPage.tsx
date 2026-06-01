@@ -7,21 +7,37 @@ import { useSite } from '../context/useSite';
 import type { PropertyType, FilterState } from '../types';
 
 export default function PropertiesPage() {
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const { properties } = useSite();
   const [showFilters, setShowFilters] = useState(false);
 
-  const [filters, setFilters] = useState<FilterState>({
-    type: (searchParams.get('type') as PropertyType | 'all') || 'all',
-    minPrice: '',
-    maxPrice: '',
-    bedrooms: searchParams.get('bedrooms') || '',
-    city: searchParams.get('city') || '',
-    search: searchParams.get('search') || '',
-  });
+  const urlType = (searchParams.get('type') as PropertyType | 'all') || 'all';
+  const urlCity = searchParams.get('city') || '';
+  const urlBedrooms = searchParams.get('bedrooms') || '';
+  const urlSearch = searchParams.get('search') || '';
 
-  const set = (key: keyof FilterState, val: string) =>
-    setFilters((f) => ({ ...f, [key]: val }));
+  const [localFilters, setLocalFilters] = useState({ minPrice: '', maxPrice: '' });
+
+  const filters: FilterState = useMemo(() => ({
+    type: urlType,
+    city: urlCity,
+    bedrooms: urlBedrooms,
+    search: urlSearch,
+    minPrice: localFilters.minPrice,
+    maxPrice: localFilters.maxPrice,
+  }), [urlType, urlCity, urlBedrooms, urlSearch, localFilters]);
+
+  const set = (key: keyof FilterState, val: string) => {
+    if (key === 'minPrice' || key === 'maxPrice') {
+      setLocalFilters((f) => ({ ...f, [key]: val }));
+    } else {
+      setSearchParams((prev) => {
+        const next = new URLSearchParams(prev);
+        if (val && val !== 'all') { next.set(key, val); } else { next.delete(key); }
+        return next;
+      });
+    }
+  };
 
   const filtered = useMemo(() => {
     return properties.filter((p) => {
@@ -37,7 +53,7 @@ export default function PropertiesPage() {
     });
   }, [filters, properties]);
 
-  const clear = () => setFilters({ type: 'all', minPrice: '', maxPrice: '', bedrooms: '', city: '', search: '' });
+  const clear = () => { setSearchParams({}); setLocalFilters({ minPrice: '', maxPrice: '' }); };
   const hasFilters = filters.type !== 'all' || filters.city || filters.bedrooms || filters.search;
 
   return (
