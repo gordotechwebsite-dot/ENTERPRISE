@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, ArrowRight, Shield, Handshake, TrendingUp, Clock } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Shield, Handshake, TrendingUp, Clock, Scale, FileCheck, BadgeCheck, Users, Landmark, ClipboardCheck } from 'lucide-react';
 import SearchBar from '../components/SearchBar';
 import PropertyCard from '../components/PropertyCard';
 import { useSite } from '../context/useSite';
@@ -197,6 +197,80 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── ASESORÍAS LEGALES ─── */}
+      <section className="bg-brand-50 py-20">
+        <div className="mx-auto max-w-[1400px] px-5 lg:px-10">
+          <div className="text-center">
+            <p className="text-[12px] font-semibold tracking-widest text-accent-500 uppercase">
+              Respaldo profesional
+            </p>
+            <h2 className="mt-3 text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold leading-tight tracking-tight text-brand-900">
+              Asesoría Legal e Inmobiliaria
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-brand-500">
+              Contamos con un equipo multidisciplinario de abogados, peritos avaluadores y asesores inmobiliarios
+              listos para acompañarte en cada paso. Tu tranquilidad es nuestra prioridad.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                icon: Scale,
+                title: 'Asesoría en Compraventa',
+                desc: 'Revisamos contratos, escrituras y documentos legales para que cada transacción sea segura y transparente.',
+              },
+              {
+                icon: FileCheck,
+                title: 'Contratos de Arrendamiento',
+                desc: 'Elaboramos y revisamos contratos de renta mensual y corta que protejan tus derechos como propietario o inquilino.',
+              },
+              {
+                icon: Landmark,
+                title: 'Avalúos Certificados',
+                desc: 'Determinamos el valor real de tu propiedad con peritos certificados para ventas, créditos hipotecarios o trámites legales.',
+              },
+              {
+                icon: BadgeCheck,
+                title: 'Estudio de Títulos',
+                desc: 'Verificamos la tradición y libertad del inmueble para garantizar que la propiedad esté libre de gravámenes.',
+              },
+              {
+                icon: Users,
+                title: 'Equipo Multidisciplinario',
+                desc: 'Abogados, contadores, ingenieros y asesores inmobiliarios trabajando juntos para brindarte la mejor solución.',
+              },
+              {
+                icon: ClipboardCheck,
+                title: 'Trámites y Gestiones',
+                desc: 'Nos encargamos de trámites notariales, registro de instrumentos públicos, certificados catastrales y más.',
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="group rounded-2xl border border-brand-100 bg-white p-6 transition-shadow hover:shadow-lg"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-accent-600 transition-colors group-hover:bg-accent-500 group-hover:text-white">
+                  <item.icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-4 text-[16px] font-semibold text-brand-900">{item.title}</h3>
+                <p className="mt-2 text-[13px] leading-relaxed text-brand-500">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              to="/contacto"
+              className="inline-flex items-center gap-2 rounded-full bg-brand-900 px-7 py-3 text-[14px] font-semibold text-white transition-colors hover:bg-brand-800"
+            >
+              Consulta con nuestros profesionales
+              <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
