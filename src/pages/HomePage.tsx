@@ -284,17 +284,7 @@ export default function HomePage() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="absolute -right-4 -bottom-4 rounded-2xl border border-brand-100 bg-white p-5 shadow-xl max-sm:hidden">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-green-100 text-green-600">
-                    <BarChart3 className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-[13px] font-semibold text-brand-900">Rentabilidad garantizada</p>
-                    <p className="text-[12px] text-brand-500">Maximizamos tus ingresos</p>
-                  </div>
-                </div>
-              </div>
+
             </div>
 
             <div>
