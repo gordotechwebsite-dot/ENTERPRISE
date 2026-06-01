@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Menu, X, Search } from 'lucide-react';
 
 const links = [
@@ -12,14 +12,10 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const { pathname } = useLocation();
-  const isHome = pathname === '/';
 
   return (
     <nav
-      className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
-        isHome ? 'bg-transparent' : 'bg-white/95 shadow-[0_1px_0_rgba(0,0,0,0.06)] backdrop-blur-md'
-      }`}
+      className="fixed top-0 right-0 left-0 z-50 bg-white/95 shadow-[0_1px_0_rgba(0,0,0,0.06)] backdrop-blur-md transition-all duration-300"
     >
       <div className="mx-auto flex h-[72px] max-w-[1400px] items-center justify-between px-5 lg:px-10">
         {/* Logo */}
@@ -27,7 +23,7 @@ export default function Navbar() {
           <img
             src="/logo.png"
             alt="Enterprise Inmobiliaria"
-            className={`h-10 w-auto object-contain ${isHome ? 'brightness-0 invert' : ''}`}
+            className="h-10 w-auto object-contain"
           />
         </Link>
 
@@ -37,9 +33,7 @@ export default function Navbar() {
             <Link
               key={l.label}
               to={l.to}
-              className={`text-[14px] font-medium tracking-wide transition-colors ${
-                isHome ? 'text-white/80 hover:text-white' : 'text-brand-600 hover:text-brand-900'
-              }`}
+              className="text-[14px] font-medium tracking-wide text-brand-600 transition-colors hover:text-brand-900"
             >
               {l.label}
             </Link>
@@ -50,11 +44,7 @@ export default function Navbar() {
         <div className="hidden items-center gap-4 lg:flex">
           <Link
             to="/propiedades"
-            className={`flex items-center gap-2 rounded-full px-4 py-2 text-[13px] font-semibold transition-colors ${
-              isHome
-                ? 'bg-white/15 text-white backdrop-blur-sm hover:bg-white/25'
-                : 'bg-brand-100 text-brand-800 hover:bg-brand-200'
-            }`}
+            className="flex items-center gap-2 rounded-full bg-brand-100 px-4 py-2 text-[13px] font-semibold text-brand-800 transition-colors hover:bg-brand-200"
           >
             <Search className="h-3.5 w-3.5" />
             Buscar
@@ -66,7 +56,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen(!open)}
-          className={`lg:hidden ${isHome ? 'text-white' : 'text-brand-900'}`}
+          className="text-brand-900 lg:hidden"
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
