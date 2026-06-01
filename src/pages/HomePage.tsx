@@ -1,11 +1,9 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, ArrowRight, Shield, Handshake, TrendingUp, Clock } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Shield, Handshake, TrendingUp, Clock, Scale, FileCheck, BadgeCheck, Users, Landmark, ClipboardCheck, KeyRound, BarChart3, ShieldCheck, Headphones } from 'lucide-react';
 import SearchBar from '../components/SearchBar';
 import PropertyCard from '../components/PropertyCard';
 import { useSite } from '../context/useSite';
-
-const marqueeText = 'Expertos en Inmuebles ';
 
 export default function HomePage() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -72,18 +70,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── MARQUEE ─── */}
-      <div className="overflow-hidden border-b border-brand-100 bg-white py-4">
-        <div className="animate-marquee flex whitespace-nowrap">
-          {Array.from({ length: 10 }).map((_, i) => (
-            <span key={i} className="mx-6 text-[13px] font-semibold tracking-[0.2em] text-brand-300 uppercase">
-              {marqueeText}
-              <span className="mx-4 text-accent-300">&#x2022;</span>
-            </span>
-          ))}
-        </div>
-      </div>
-
       {/* ─── CATEGORIES ─── */}
       <section className="py-20">
         <div className="mx-auto max-w-[1400px] px-5 lg:px-10">
@@ -103,10 +89,7 @@ export default function HomePage() {
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6">
-                  <span className="text-[12px] font-semibold tracking-wider text-white/60 uppercase">
-                    {cat.count} propiedades
-                  </span>
-                  <h3 className="mt-1 text-[22px] font-bold text-white">{cat.title}</h3>
+                  <h3 className="text-[22px] font-bold text-white">{cat.title}</h3>
                   <p className="mt-1 text-[13px] leading-relaxed text-white/70">{cat.desc}</p>
                 </div>
               </Link>
@@ -210,6 +193,146 @@ export default function HomePage() {
                   <p className="mt-1 text-[13px] leading-relaxed text-brand-500">{item.desc}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── ASESORÍAS LEGALES ─── */}
+      <section className="bg-brand-50 py-20">
+        <div className="mx-auto max-w-[1400px] px-5 lg:px-10">
+          <div className="text-center">
+            <p className="text-[12px] font-semibold tracking-widest text-accent-500 uppercase">
+              Respaldo profesional
+            </p>
+            <h2 className="mt-3 text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold leading-tight tracking-tight text-brand-900">
+              Asesoría Legal e Inmobiliaria
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-relaxed text-brand-500">
+              Contamos con un equipo multidisciplinario de abogados, peritos avaluadores y asesores inmobiliarios
+              listos para acompañarte en cada paso. Tu tranquilidad es nuestra prioridad.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                icon: Scale,
+                title: 'Asesoría en Compraventa',
+                desc: 'Revisamos contratos, escrituras y documentos legales para que cada transacción sea segura y transparente.',
+              },
+              {
+                icon: FileCheck,
+                title: 'Contratos de Arrendamiento',
+                desc: 'Elaboramos y revisamos contratos de renta mensual y corta que protejan tus derechos como propietario o inquilino.',
+              },
+              {
+                icon: Landmark,
+                title: 'Avalúos Certificados',
+                desc: 'Determinamos el valor real de tu propiedad con peritos certificados para ventas, créditos hipotecarios o trámites legales.',
+              },
+              {
+                icon: BadgeCheck,
+                title: 'Estudio de Títulos',
+                desc: 'Verificamos la tradición y libertad del inmueble para garantizar que la propiedad esté libre de gravámenes.',
+              },
+              {
+                icon: Users,
+                title: 'Equipo Multidisciplinario',
+                desc: 'Abogados, contadores, ingenieros y asesores inmobiliarios trabajando juntos para brindarte la mejor solución.',
+              },
+              {
+                icon: ClipboardCheck,
+                title: 'Trámites y Gestiones',
+                desc: 'Nos encargamos de trámites notariales, registro de instrumentos públicos, certificados catastrales y más.',
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="group rounded-2xl border border-brand-100 bg-white p-6 transition-shadow hover:shadow-lg"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-accent-600 transition-colors group-hover:bg-accent-500 group-hover:text-white">
+                  <item.icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-4 text-[16px] font-semibold text-brand-900">{item.title}</h3>
+                <p className="mt-2 text-[13px] leading-relaxed text-brand-500">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Link
+              to="/contacto"
+              className="inline-flex items-center gap-2 rounded-full bg-brand-900 px-7 py-3 text-[14px] font-semibold text-white transition-colors hover:bg-brand-800"
+            >
+              Consulta con nuestros profesionales
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── PROPIETARIOS ─── */}
+      <section className="relative overflow-hidden py-24">
+        <div className="mx-auto max-w-[1400px] px-5 lg:px-10">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div className="relative">
+              <div className="overflow-hidden rounded-3xl">
+                <img
+                  src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop"
+                  alt="Propiedad en alquiler"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+
+            </div>
+
+            <div>
+              <p className="text-[12px] font-semibold tracking-widest text-accent-500 uppercase">
+                Para propietarios
+              </p>
+              <h2 className="mt-3 text-[clamp(1.6rem,3.5vw,2.5rem)] font-bold leading-tight tracking-tight text-brand-900">
+                ¿Tienes una propiedad<br />sin rentar?
+              </h2>
+              <p className="mt-4 max-w-lg text-[15px] leading-relaxed text-brand-500">
+                Nosotros nos encargamos de todo. Encontraremos la manera más rentable y segura
+                de hacer funcionar ese inmueble para ti. Desde la publicación hasta el cobro mensual,
+                tú solo recibes tus ganancias.
+              </p>
+
+              <div className="mt-8 space-y-4">
+                {[
+                  { icon: KeyRound, text: 'Administramos tu propiedad de principio a fin' },
+                  { icon: ShieldCheck, text: 'Inquilinos verificados con estudio de seguridad' },
+                  { icon: BarChart3, text: 'Análisis de mercado para fijar el mejor precio' },
+                  { icon: Headphones, text: 'Soporte 24/7 para ti y para tus inquilinos' },
+                ].map((item) => (
+                  <div key={item.text} className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-50 text-accent-600">
+                      <item.icon className="h-4 w-4" />
+                    </div>
+                    <span className="text-[14px] font-medium text-brand-700">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  to="/contacto"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-900 px-7 py-3 text-[14px] font-semibold text-white transition-colors hover:bg-brand-800"
+                >
+                  Quiero rentar mi propiedad
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <a
+                  href={`https://wa.me/573001234567?text=${encodeURIComponent('Hola, tengo una propiedad y me gustaría saber cómo pueden ayudarme a rentarla.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-200 px-7 py-3 text-[14px] font-semibold text-brand-900 transition-colors hover:bg-brand-50"
+                >
+                  Hablar por WhatsApp
+                </a>
+              </div>
             </div>
           </div>
         </div>

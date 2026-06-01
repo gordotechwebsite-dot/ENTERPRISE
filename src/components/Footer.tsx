@@ -9,30 +9,29 @@ export default function Footer() {
   return (
     <footer className="bg-brand-950 text-brand-400">
       <div className="mx-auto max-w-[1400px] px-5 py-16 lg:px-10">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 sm:grid-cols-2">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-white text-[14px] font-black text-brand-900">
-                E
-              </div>
-              <span className="text-[16px] font-bold tracking-tight text-white">
-                Enterprise
-              </span>
+            <Link to="/" className="flex items-center">
+              <img
+                src="/logo.png"
+                alt="Enterprise Inmobiliaria"
+                className="h-9 w-auto object-contain brightness-0 invert"
+              />
             </Link>
             <p className="mt-4 text-[13px] leading-relaxed text-brand-500">
               Expertos en inmuebles en Boyacá. Duitama, Tunja, Sogamoso y Paipa.
             </p>
-            <div className="mt-5 flex gap-2">
+            <div className="mt-5 flex gap-3">
               {contact.facebook && (
                 <a
                   href={contact.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/8 text-brand-400 transition-colors hover:bg-[#1877F2] hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1877F2] text-white transition-opacity hover:opacity-80"
                 >
-                  <FacebookIcon className="h-4 w-4" />
+                  <FacebookIcon className="h-5 w-5" />
                 </a>
               )}
               {contact.instagram && (
@@ -41,9 +40,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/8 text-brand-400 transition-colors hover:bg-[#E4405F] hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white transition-opacity hover:opacity-80"
                 >
-                  <InstagramIcon className="h-4 w-4" />
+                  <InstagramIcon className="h-5 w-5" />
                 </a>
               )}
               <a
@@ -51,37 +50,10 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Airbnb"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/8 text-brand-400 transition-colors hover:bg-[#FF5A5F] hover:text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FF5A5F] text-white transition-opacity hover:opacity-80"
               >
-                <AirbnbIcon className="h-4 w-4" />
+                <AirbnbIcon className="h-5 w-5" />
               </a>
-            </div>
-          </div>
-
-          {/* Properties */}
-          <div>
-            <h4 className="mb-4 text-[12px] font-semibold tracking-widest text-brand-300 uppercase">
-              Propiedades
-            </h4>
-            <div className="space-y-2.5 text-[13px]">
-              <Link to="/propiedades?type=venta" className="block hover:text-white">Comprar</Link>
-              <Link to="/propiedades?type=renta-mensual" className="block hover:text-white">Renta Mensual</Link>
-              <Link to="/propiedades?type=renta-corta" className="block hover:text-white">Renta Corta</Link>
-              <Link to="/propiedades" className="block hover:text-white">Todas</Link>
-            </div>
-          </div>
-
-          {/* Cities */}
-          <div>
-            <h4 className="mb-4 text-[12px] font-semibold tracking-widest text-brand-300 uppercase">
-              Ciudades
-            </h4>
-            <div className="space-y-2.5 text-[13px]">
-              {['Duitama', 'Tunja', 'Sogamoso', 'Paipa'].map((c) => (
-                <Link key={c} to={`/propiedades?city=${c}`} className="block hover:text-white">
-                  {c}
-                </Link>
-              ))}
             </div>
           </div>
 

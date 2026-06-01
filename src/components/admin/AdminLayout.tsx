@@ -25,10 +25,8 @@ export default function AdminLayout() {
       {/* Sidebar */}
       <aside className="fixed inset-y-0 left-0 z-30 flex w-60 flex-col border-r border-brand-200 bg-white max-lg:hidden">
         <div className="flex h-16 items-center gap-2.5 border-b border-brand-200 px-5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-brand-900 text-[14px] font-black text-white">
-            E
-          </div>
-          <span className="text-[15px] font-bold tracking-tight text-brand-900">Enterprise Admin</span>
+          <img src="/logo-sm.png" alt="Enterprise" className="h-8 w-auto object-contain" />
+          <span className="text-[13px] font-semibold text-brand-500">Admin</span>
         </div>
         <nav className="flex-1 space-y-0.5 px-3 py-4">
           {links.map(({ to, icon: Icon, label, end }) => (
@@ -70,7 +68,7 @@ export default function AdminLayout() {
 
       {/* Mobile header */}
       <header className="fixed inset-x-0 top-0 z-30 flex h-14 items-center justify-between border-b border-brand-200 bg-white px-4 lg:hidden">
-        <span className="text-[14px] font-bold text-brand-900">Enterprise Admin</span>
+        <img src="/logo-sm.png" alt="Enterprise Admin" className="h-7 w-auto object-contain" />
         <div className="flex gap-1">
           {links.map(({ to, icon: Icon, label, end }) => (
             <NavLink

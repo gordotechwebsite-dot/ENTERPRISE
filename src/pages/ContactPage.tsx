@@ -69,7 +69,7 @@ export default function ContactPage() {
                       type="text"
                       required
                       className="w-full rounded-lg border border-brand-200 px-4 py-3 text-[14px] text-brand-900 outline-none focus:border-brand-400"
-                      placeholder="Tu nombre"
+                      placeholder=""
                     />
                   </div>
                   <div>
@@ -81,7 +81,7 @@ export default function ContactPage() {
                       type="tel"
                       required
                       className="w-full rounded-lg border border-brand-200 px-4 py-3 text-[14px] text-brand-900 outline-none focus:border-brand-400"
-                      placeholder="+57 300 000 0000"
+                      placeholder=""
                     />
                   </div>
                 </div>
@@ -94,7 +94,7 @@ export default function ContactPage() {
                     type="email"
                     required
                     className="w-full rounded-lg border border-brand-200 px-4 py-3 text-[14px] text-brand-900 outline-none focus:border-brand-400"
-                    placeholder="tu@email.com"
+                    placeholder=""
                   />
                 </div>
                 <div>
@@ -117,7 +117,7 @@ export default function ContactPage() {
                     name="message"
                     rows={4}
                     className="w-full resize-none rounded-lg border border-brand-200 px-4 py-3 text-[14px] text-brand-900 outline-none focus:border-brand-400"
-                    placeholder="Cuéntanos qué estás buscando..."
+                    placeholder=""
                   />
                 </div>
                 <button
@@ -154,7 +154,7 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Facebook"
-                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-brand-600 shadow-sm transition-colors hover:bg-[#1877F2] hover:text-white"
+                    className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#1877F2] text-white shadow-sm transition-opacity hover:opacity-80"
                   >
                     <FacebookIcon className="h-5 w-5" />
                   </a>
@@ -165,7 +165,7 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
-                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-brand-600 shadow-sm transition-colors hover:bg-[#E4405F] hover:text-white"
+                    className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white shadow-sm transition-opacity hover:opacity-80"
                   >
                     <InstagramIcon className="h-5 w-5" />
                   </a>
@@ -175,7 +175,7 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Airbnb"
-                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-brand-600 shadow-sm transition-colors hover:bg-[#FF5A5F] hover:text-white"
+                  className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#FF5A5F] text-white shadow-sm transition-opacity hover:opacity-80"
                 >
                   <AirbnbIcon className="h-5 w-5" />
                 </a>
