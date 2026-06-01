@@ -43,18 +43,7 @@ export default function HomePage() {
             <div className="mt-8">
               <SearchBar />
             </div>
-            <div className="mt-10 flex gap-8 text-white/60">
-              {[
-                ['500+', 'Propiedades'],
-                ['2,000+', 'Clientes'],
-                ['12', 'Ciudades'],
-              ].map(([n, l]) => (
-                <div key={l}>
-                  <div className="text-[22px] font-bold text-white">{n}</div>
-                  <div className="text-[12px] tracking-wide">{l}</div>
-                </div>
-              ))}
-            </div>
+
           </div>
         </div>
       </section>
