@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="bg-brand-950 text-brand-400">
       <div className="mx-auto max-w-[1400px] px-5 py-16 lg:px-10">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-10 sm:grid-cols-2">
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-center">
@@ -54,33 +54,6 @@ export default function Footer() {
               >
                 <AirbnbIcon className="h-5 w-5" />
               </a>
-            </div>
-          </div>
-
-          {/* Properties */}
-          <div>
-            <h4 className="mb-4 text-[12px] font-semibold tracking-widest text-brand-300 uppercase">
-              Propiedades
-            </h4>
-            <div className="space-y-2.5 text-[13px]">
-              <Link to="/propiedades?type=venta" className="block hover:text-white">Comprar</Link>
-              <Link to="/propiedades?type=renta-mensual" className="block hover:text-white">Renta Mensual</Link>
-              <Link to="/propiedades?type=renta-corta" className="block hover:text-white">Renta Corta</Link>
-              <Link to="/propiedades" className="block hover:text-white">Todas</Link>
-            </div>
-          </div>
-
-          {/* Cities */}
-          <div>
-            <h4 className="mb-4 text-[12px] font-semibold tracking-widest text-brand-300 uppercase">
-              Ciudades
-            </h4>
-            <div className="space-y-2.5 text-[13px]">
-              {['Duitama', 'Tunja', 'Sogamoso', 'Paipa'].map((c) => (
-                <Link key={c} to={`/propiedades?city=${c}`} className="block hover:text-white">
-                  {c}
-                </Link>
-              ))}
             </div>
           </div>
 
