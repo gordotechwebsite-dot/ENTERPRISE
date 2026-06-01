@@ -6,7 +6,7 @@ import type { SiteContent, ContactInfo, ContactMessage, SiteCtx } from './siteTy
 
 /* ─── Defaults ─── */
 const defaultContent: SiteContent = {
-  hero: { title: 'Encuentra', highlight: 'tu lugar', subtitle: 'Apartamentos en venta, rentas mensuales y estancias cortas en las mejores ubicaciones de Colombia.' },
+  hero: { title: 'Encuentra', highlight: 'tu lugar', subtitle: 'Apartamentos en venta, rentas mensuales y estancias cortas en Duitama, Tunja, Sogamoso y Paipa.' },
   categories: [
     { title: 'Comprar', description: 'Apartamentos de lujo, familiares y de inversión en las mejores zonas.' },
     { title: 'Renta Mensual', description: 'Arriendos con las mejores condiciones. Amoblados y sin amoblar.' },
@@ -15,19 +15,19 @@ const defaultContent: SiteContent = {
   whyUs: {
     title: 'Más que una inmobiliaria, tu aliado de confianza',
     subtitle: 'Por qué Enterprise',
-    description: 'Con más de 10 años de experiencia en el mercado colombiano, te acompañamos en cada paso para encontrar la propiedad perfecta.',
+    description: 'Conocemos Boyacá como nadie. Te acompañamos en cada paso para encontrar la propiedad perfecta en Duitama, Tunja, Sogamoso y Paipa.',
   },
 };
 
 const defaultContact: ContactInfo = {
   phone: '+57 300 123 4567',
   email: 'info@enterprise.com.co',
-  address: 'Calle 93 #11-28, Oficina 501',
-  city: 'Bogotá, Colombia',
+  address: 'Carrera 16 #18-45, Oficina 301',
+  city: 'Duitama, Boyacá',
   hours: 'Lun - Vie: 8am - 6pm\nSáb: 9am - 2pm',
   whatsapp: '573001234567',
-  instagram: '',
-  facebook: '',
+  instagram: 'https://instagram.com/enterprise.inmobiliaria',
+  facebook: 'https://facebook.com/enterprise.inmobiliaria',
 };
 
 const ADMIN_PASSWORD = 'enterprise2024';

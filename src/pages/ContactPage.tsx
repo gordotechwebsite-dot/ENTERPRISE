@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { useSite } from '../context/useSite';
+import { FacebookIcon, InstagramIcon, AirbnbIcon } from '../components/SocialIcons';
 
 export default function ContactPage() {
   const { contact, addMessage } = useSite();
@@ -142,6 +143,44 @@ export default function ContactPage() {
                 </div>
               </div>
             ))}
+
+            {/* Social */}
+            <div className="rounded-xl border border-brand-100 bg-brand-50 p-5">
+              <h3 className="mb-3 text-[14px] font-semibold text-brand-900">Síguenos</h3>
+              <div className="flex gap-3">
+                {contact.facebook && (
+                  <a
+                    href={contact.facebook}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-brand-600 shadow-sm transition-colors hover:bg-[#1877F2] hover:text-white"
+                  >
+                    <FacebookIcon className="h-5 w-5" />
+                  </a>
+                )}
+                {contact.instagram && (
+                  <a
+                    href={contact.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-brand-600 shadow-sm transition-colors hover:bg-[#E4405F] hover:text-white"
+                  >
+                    <InstagramIcon className="h-5 w-5" />
+                  </a>
+                )}
+                <a
+                  href="https://airbnb.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Airbnb"
+                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-brand-600 shadow-sm transition-colors hover:bg-[#FF5A5F] hover:text-white"
+                >
+                  <AirbnbIcon className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
