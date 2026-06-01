@@ -2,11 +2,13 @@ import { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { SlidersHorizontal, X, Search } from 'lucide-react';
 import PropertyCard from '../components/PropertyCard';
-import { properties, cities, typeLabels } from '../data/properties';
+import { cities, typeLabels } from '../data/properties';
+import { useSite } from '../context/useSite';
 import type { PropertyType, FilterState } from '../types';
 
 export default function PropertiesPage() {
   const [searchParams] = useSearchParams();
+  const { properties } = useSite();
   const [showFilters, setShowFilters] = useState(false);
 
   const [filters, setFilters] = useState<FilterState>({
@@ -33,7 +35,7 @@ export default function PropertiesPage() {
       }
       return true;
     });
-  }, [filters]);
+  }, [filters, properties]);
 
   const clear = () => setFilters({ type: 'all', minPrice: '', maxPrice: '', bedrooms: '', city: '', search: '' });
   const hasFilters = filters.type !== 'all' || filters.city || filters.bedrooms || filters.search;

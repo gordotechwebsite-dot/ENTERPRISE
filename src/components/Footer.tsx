@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Globe, MessageCircle, Mail, Phone, MapPin } from 'lucide-react';
+import { useSite } from '../context/useSite';
 
 export default function Footer() {
+  const { contact } = useSite();
+
   return (
     <footer className="bg-brand-950 text-brand-400">
       <div className="mx-auto max-w-[1400px] px-5 py-16 lg:px-10">
@@ -67,15 +70,15 @@ export default function Footer() {
             <div className="space-y-3 text-[13px]">
               <div className="flex items-start gap-2.5">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent-400" />
-                Calle 93 #11-28, Of. 501, Bogotá
+                {contact.address}, {contact.city}
               </div>
-              <a href="tel:+573001234567" className="flex items-center gap-2.5 hover:text-white">
+              <a href={`tel:${contact.phone.replace(/\s/g, '')}`} className="flex items-center gap-2.5 hover:text-white">
                 <Phone className="h-4 w-4 shrink-0 text-accent-400" />
-                +57 300 123 4567
+                {contact.phone}
               </a>
-              <a href="mailto:info@enterprise.com.co" className="flex items-center gap-2.5 hover:text-white">
+              <a href={`mailto:${contact.email}`} className="flex items-center gap-2.5 hover:text-white">
                 <Mail className="h-4 w-4 shrink-0 text-accent-400" />
-                info@enterprise.com.co
+                {contact.email}
               </a>
             </div>
           </div>

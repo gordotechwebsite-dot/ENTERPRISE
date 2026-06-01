@@ -1,13 +1,31 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import { useSite } from '../context/useSite';
 
 export default function ContactPage() {
+  const { contact, addMessage } = useSite();
   const [sent, setSent] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const fd = new FormData(formRef.current!);
+    addMessage({
+      name: fd.get('name') as string,
+      phone: fd.get('phone') as string,
+      email: fd.get('email') as string,
+      interest: fd.get('interest') as string,
+      message: fd.get('message') as string,
+    });
     setSent(true);
   };
+
+  const infoCards = [
+    { icon: MapPin, title: 'Oficina principal', text: `${contact.address}\n${contact.city}` },
+    { icon: Phone, title: 'Teléfono', text: contact.phone },
+    { icon: Mail, title: 'Email', text: contact.email },
+    { icon: Clock, title: 'Horario', text: contact.hours },
+  ];
 
   return (
     <div className="min-h-screen bg-white pt-[72px]">
@@ -39,13 +57,14 @@ export default function ContactPage() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label className="mb-1.5 block text-[12px] font-semibold tracking-wider text-brand-500 uppercase">
                       Nombre
                     </label>
                     <input
+                      name="name"
                       type="text"
                       required
                       className="w-full rounded-lg border border-brand-200 px-4 py-3 text-[14px] text-brand-900 outline-none focus:border-brand-400"
@@ -57,6 +76,7 @@ export default function ContactPage() {
                       Teléfono
                     </label>
                     <input
+                      name="phone"
                       type="tel"
                       required
                       className="w-full rounded-lg border border-brand-200 px-4 py-3 text-[14px] text-brand-900 outline-none focus:border-brand-400"
@@ -69,6 +89,7 @@ export default function ContactPage() {
                     Email
                   </label>
                   <input
+                    name="email"
                     type="email"
                     required
                     className="w-full rounded-lg border border-brand-200 px-4 py-3 text-[14px] text-brand-900 outline-none focus:border-brand-400"
@@ -79,7 +100,7 @@ export default function ContactPage() {
                   <label className="mb-1.5 block text-[12px] font-semibold tracking-wider text-brand-500 uppercase">
                     Interesado en
                   </label>
-                  <select className="w-full rounded-lg border border-brand-200 bg-white px-4 py-3 text-[14px] text-brand-900 outline-none focus:border-brand-400">
+                  <select name="interest" className="w-full rounded-lg border border-brand-200 bg-white px-4 py-3 text-[14px] text-brand-900 outline-none focus:border-brand-400">
                     <option>Comprar un inmueble</option>
                     <option>Renta mensual</option>
                     <option>Renta corta / vacacional</option>
@@ -92,6 +113,7 @@ export default function ContactPage() {
                     Mensaje
                   </label>
                   <textarea
+                    name="message"
                     rows={4}
                     className="w-full resize-none rounded-lg border border-brand-200 px-4 py-3 text-[14px] text-brand-900 outline-none focus:border-brand-400"
                     placeholder="Cuéntanos qué estás buscando..."
@@ -109,12 +131,7 @@ export default function ContactPage() {
 
           {/* Info */}
           <div className="space-y-6">
-            {[
-              { icon: MapPin, title: 'Oficina principal', text: 'Calle 93 #11-28, Oficina 501\nBogotá, Colombia' },
-              { icon: Phone, title: 'Teléfono', text: '+57 300 123 4567' },
-              { icon: Mail, title: 'Email', text: 'info@enterprise.com.co' },
-              { icon: Clock, title: 'Horario', text: 'Lun - Vie: 8am - 6pm\nSáb: 9am - 2pm' },
-            ].map((item) => (
+            {infoCards.map((item) => (
               <div key={item.title} className="flex gap-4 rounded-xl border border-brand-100 bg-brand-50 p-5">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-brand-700 shadow-sm">
                   <item.icon className="h-5 w-5" />
