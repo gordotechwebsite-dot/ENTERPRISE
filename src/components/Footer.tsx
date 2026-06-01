@@ -20,7 +20,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-[13px] leading-relaxed text-brand-500">
-              Expertos en inmuebles con más de 10 años en el mercado colombiano.
+              Expertos en inmuebles en Boyacá. Duitama, Tunja, Sogamoso y Paipa.
             </p>
             <div className="mt-5 flex gap-2">
               {[Globe, MessageCircle].map((Icon, i) => (
@@ -54,7 +54,7 @@ export default function Footer() {
               Ciudades
             </h4>
             <div className="space-y-2.5 text-[13px]">
-              {['Bogotá', 'Medellín', 'Cartagena', 'Cali'].map((c) => (
+              {['Duitama', 'Tunja', 'Sogamoso', 'Paipa'].map((c) => (
                 <Link key={c} to={`/propiedades?city=${c}`} className="block hover:text-white">
                   {c}
                 </Link>

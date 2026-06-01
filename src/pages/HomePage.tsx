@@ -124,7 +124,7 @@ export default function HomePage() {
                 {featured.length}+ propiedades en
               </p>
               <h2 className="mt-1 text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight tracking-tight text-brand-900">
-                — Colombia
+                — Boyacá
               </h2>
             </div>
             <div className="hidden items-center gap-2 md:flex">
