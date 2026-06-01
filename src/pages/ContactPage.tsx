@@ -154,7 +154,7 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Facebook"
-                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-brand-600 shadow-sm transition-colors hover:bg-[#1877F2] hover:text-white"
+                    className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#1877F2] text-white shadow-sm transition-opacity hover:opacity-80"
                   >
                     <FacebookIcon className="h-5 w-5" />
                   </a>
@@ -165,7 +165,7 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
-                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-brand-600 shadow-sm transition-colors hover:bg-[#E4405F] hover:text-white"
+                    className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white shadow-sm transition-opacity hover:opacity-80"
                   >
                     <InstagramIcon className="h-5 w-5" />
                   </a>
@@ -175,7 +175,7 @@ export default function ContactPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Airbnb"
-                  className="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-brand-600 shadow-sm transition-colors hover:bg-[#FF5A5F] hover:text-white"
+                  className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#FF5A5F] text-white shadow-sm transition-opacity hover:opacity-80"
                 >
                   <AirbnbIcon className="h-5 w-5" />
                 </a>

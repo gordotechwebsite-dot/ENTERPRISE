@@ -22,16 +22,16 @@ export default function Footer() {
             <p className="mt-4 text-[13px] leading-relaxed text-brand-500">
               Expertos en inmuebles en Boyacá. Duitama, Tunja, Sogamoso y Paipa.
             </p>
-            <div className="mt-5 flex gap-2">
+            <div className="mt-5 flex gap-3">
               {contact.facebook && (
                 <a
                   href={contact.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/8 text-brand-400 transition-colors hover:bg-[#1877F2] hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1877F2] text-white transition-opacity hover:opacity-80"
                 >
-                  <FacebookIcon className="h-4 w-4" />
+                  <FacebookIcon className="h-5 w-5" />
                 </a>
               )}
               {contact.instagram && (
@@ -40,9 +40,9 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/8 text-brand-400 transition-colors hover:bg-[#E4405F] hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-tr from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white transition-opacity hover:opacity-80"
                 >
-                  <InstagramIcon className="h-4 w-4" />
+                  <InstagramIcon className="h-5 w-5" />
                 </a>
               )}
               <a
@@ -50,9 +50,9 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Airbnb"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/8 text-brand-400 transition-colors hover:bg-[#FF5A5F] hover:text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FF5A5F] text-white transition-opacity hover:opacity-80"
               >
-                <AirbnbIcon className="h-4 w-4" />
+                <AirbnbIcon className="h-5 w-5" />
               </a>
             </div>
           </div>
