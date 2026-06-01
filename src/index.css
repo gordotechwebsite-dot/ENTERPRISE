@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #F7F6F4;
+  --color-brand-100: #EDEBE7;
+  --color-brand-200: #DBD7D0;
+  --color-brand-300: #C2BBB0;
+  --color-brand-400: #A39A8C;
+  --color-brand-500: #857A6B;
+  --color-brand-600: #6B6155;
+  --color-brand-700: #524A40;
+  --color-brand-800: #38332C;
+  --color-brand-900: #1F1C18;
+  --color-brand-950: #0F0E0C;
+
+  --color-accent-50: #F6F0EB;
+  --color-accent-100: #ECDDD1;
+  --color-accent-200: #D9BCA4;
+  --color-accent-300: #C69B77;
+  --color-accent-400: #B37F54;
+  --color-accent-500: #96673F;
+  --color-accent-600: #7A5333;
+  --color-accent-700: #5E4028;
+  --color-accent-800: #432D1C;
+  --color-accent-900: #271A11;
+
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-display: 'Libre Baskerville', Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: #1A1816;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
